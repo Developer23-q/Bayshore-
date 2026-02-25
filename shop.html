@@ -1,0 +1,569 @@
+<!-- shop.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection | Bayshore+</title>
+  <meta name="description" content="Browse our exclusive collection of luxury timepieces and fine jewelry.">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .page-header {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-lg);
+      font-size: var(--font-xs);
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .breadcrumb a {
+      color: var(--text-secondary);
+      transition: var(--transition-base);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent-gold);
+    }
+
+    .breadcrumb-separator {
+      color: var(--accent-gold);
+    }
+
+    .page-title {
+      font-size: var(--font-2xl);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .controls-bar {
+      padding: var(--space-lg) 0;
+      border-bottom: 1px solid rgba(168, 168, 168, 0.1);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .controls-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    @media (min-width: 640px) {
+      .controls-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .results-count {
+      font-size: var(--font-sm);
+      color: var(--text-secondary);
+    }
+
+    .controls-group {
+      display: flex;
+      gap: var(--space-md);
+      align-items: center;
+    }
+
+    .control-select {
+      background-color: var(--bg-secondary);
+      border: 1px solid rgba(168, 168, 168, 0.2);
+      color: var(--text-primary);
+      padding: var(--space-sm) var(--space-lg);
+      font-size: var(--font-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .control-select:hover,
+    .control-select:focus {
+      border-color: var(--accent-gold);
+      outline: none;
+    }
+
+    .filter-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-lg);
+      background-color: transparent;
+      border: 1px solid rgba(168, 168, 168, 0.2);
+      color: var(--text-primary);
+      font-size: var(--font-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .filter-btn:hover,
+    .filter-btn:focus {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    .shop-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-xl);
+      padding-bottom: var(--space-4xl);
+    }
+
+    @media (min-width: 640px) {
+      .shop-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .shop-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .product-card {
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+      transition: var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .product-image {
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-slow);
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: var(--space-lg);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-meta {
+      margin-bottom: auto;
+    }
+
+    .product-category {
+      font-size: var(--font-xs);
+      color: var(--accent-gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-xs);
+      display: block;
+    }
+
+    .product-name {
+      font-size: var(--font-lg);
+      font-weight: 400;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
+    }
+
+    .product-price {
+      font-size: var(--font-base);
+      color: var(--accent-gold);
+      font-weight: 500;
+      margin-bottom: var(--space-lg);
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      padding: var(--space-2xl) 0 var(--space-4xl);
+    }
+
+    .pagination-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: transparent;
+      border: 1px solid rgba(168, 168, 168, 0.2);
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .pagination-btn:hover,
+    .pagination-btn:focus {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    .pagination-btn.active {
+      background-color: var(--accent-gold);
+      border-color: var(--accent-gold);
+      color: var(--bg-primary);
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Bayshore+</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="shop.html" class="nav-link">Watches</a></li>
+          <li><a href="shop.html" class="nav-link">Jewelry</a></li>
+          <li><a href="index.html#collections" class="nav-link">Collections</a></li>
+          <li><a href="index.html#craftsmanship" class="nav-link">Craftsmanship</a></li>
+          <li><a href="index.html#boutiques" class="nav-link">Boutiques</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="breadcrumb-separator">/</span>
+          <span aria-current="page">Collection</span>
+        </nav>
+        <h1 class="page-title">The Collection</h1>
+      </div>
+    </div>
+
+    <div class="controls-bar">
+      <div class="container">
+        <div class="controls-inner">
+          <span class="results-count">Showing 12 of 18 pieces</span>
+          <div class="controls-group">
+            <button class="filter-btn" aria-label="Filter products">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+              </svg>
+              Filter
+            </button>
+            <select class="control-select" aria-label="Sort products">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-az">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container">
+      <div class="shop-grid">
+        <article class="product-card">
+          <div class="product-image">
+            <img src="assets/craftsman.jpg"
+              alt="Master craftsman examining intricate watch movement through magnifying glass" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Royal Oak Chronograph</h3>
+              <p class="product-price">$28,500</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Diamond+Aura+Ring"
+              alt="Diamond Aura Ring featuring brilliant cut diamonds in platinum setting" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Diamond Aura Ring</h3>
+              <p class="product-price">$12,800</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Heritage+Moonphase"
+              alt="Heritage Moonphase watch with silver dial and leather strap" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Heritage Moonphase</h3>
+              <p class="product-price">$19,200</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Golden+Embrace+Bracelet"
+              alt="Golden Embrace Bracelet in 18k yellow gold with intricate link design" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Golden Embrace Bracelet</h3>
+              <p class="product-price">$8,900</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Aviator+Elite"
+              alt="Aviator Elite chronograph with titanium case and blue dial" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Aviator Elite</h3>
+              <p class="product-price">$15,600</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Pearl+Essence+Earrings"
+              alt="Pearl Essence Earrings featuring South Sea pearls and diamond accents" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Pearl Essence Earrings</h3>
+              <p class="product-price">$6,400</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Midnight+Star+Watch"
+              alt="Midnight Star Watch with black ceramic case and diamond bezel" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Midnight Star Watch</h3>
+              <p class="product-price">$42,000</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Rose+Gold+Pendant"
+              alt="Rose Gold Pendant with central sapphire and diamond halo" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Rose Gold Pendant</h3>
+              <p class="product-price">$9,200</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Diver+Pro+300"
+              alt="Diver Pro 300 professional diving watch with rotating bezel" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Diver Pro 300</h3>
+              <p class="product-price">$11,800</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Emerald+Cut+Ring"
+              alt="Emerald Cut Ring featuring Colombian emerald with baguette diamonds" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Emerald Cut Ring</h3>
+              <p class="product-price">$34,500</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Classic+Dress+Watch"
+              alt="Classic Dress Watch with white dial and alligator leather strap" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Timepiece</span>
+              <h3 class="product-name">Classic Dress Watch</h3>
+              <p class="product-price">$8,600</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <img src="https://via.placeholder.com/600x600/1C1C1C/C6A75E?text=Platinum+Chain+Necklace"
+              alt="Platinum Chain Necklace with Art Deco inspired design" loading="lazy">
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span class="product-category">Fine Jewelry</span>
+              <h3 class="product-name">Platinum Chain Necklace</h3>
+              <p class="product-price">$15,200</p>
+            </div>
+            <a href="product.html" class="product-link">View Details</a>
+          </div>
+        </article>
+      </div>
+
+      <nav class="pagination" aria-label="Page navigation">
+        <button class="pagination-btn" disabled aria-label="Previous page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button class="pagination-btn active" aria-current="page">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">4</button>
+        <button class="pagination-btn" aria-label="Next page">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html" class="footer-link">Watches</a></li>
+            <li><a href="shop.html" class="footer-link">Fine Jewelry</a></li>
+            <li><a href="index.html#collections" class="footer-link">Collections</a></li>
+            <li><a href="index.html#collections" class="footer-link">New Arrivals</a></li>
+            <li><a href="index.html#boutiques" class="footer-link">Bespoke Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Client Care</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="policies/shipping.html" class="footer-link">Shipping & Returns</a></li>
+            <li><a href="care.html" class="footer-link">Product Care</a></li>
+            <li><a href="policies/refund.html" class="footer-link">Warranty</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact">
+            <p>Bayshore+ Maison</p>
+            <p>12 Rue du Rhône</p>
+            <p>1204 Geneva, Switzerland</p>
+            <p style="margin-top: var(--space-md);">concierge@Bayshore+.com</p>
+            <p>+41 22 818 0000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2026 Bayshore+. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+ </body>
+</html>

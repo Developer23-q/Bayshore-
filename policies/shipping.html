@@ -1,0 +1,315 @@
+<!-- policies/shipping.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Policy | Bayshore+</title>
+  <meta name="description"
+    content="Bayshore+ shipping policy including processing times, delivery options, and international customs information.">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .page-header {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      text-align: center;
+      border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+    }
+
+    .page-title {
+      font-size: var(--font-2xl);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .policy-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-3xl) var(--space-md);
+    }
+
+    .policy-section {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .policy-section h2 {
+      font-size: var(--font-xl);
+      font-weight: 400;
+      margin-bottom: var(--space-lg);
+      color: var(--accent-gold);
+      letter-spacing: 0.02em;
+    }
+
+    .policy-section h3 {
+      font-size: var(--font-lg);
+      font-weight: 500;
+      margin-top: var(--space-xl);
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+
+    .policy-section p {
+      font-size: var(--font-base);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .policy-section ul {
+      margin-bottom: var(--space-lg);
+      padding-left: var(--space-lg);
+    }
+
+    .policy-section li {
+      font-size: var(--font-base);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-sm);
+      position: relative;
+      padding-left: var(--space-md);
+    }
+
+    .policy-section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-gold);
+      border-radius: 50%;
+    }
+
+    .highlight-box {
+      background-color: var(--bg-secondary);
+      border-left: 3px solid var(--accent-gold);
+      padding: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text-primary);
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      transition: var(--transition-base);
+      margin-top: var(--space-2xl);
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    @media (min-width: 768px) {
+      .policy-container {
+        padding: var(--space-4xl) var(--space-xl);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">Bayshore+</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../shop.html" class="nav-link">Watches</a></li>
+          <li><a href="../shop.html" class="nav-link">Jewelry</a></li>
+          <li><a href="../index.html#collections" class="nav-link">Collections</a></li>
+          <li><a href="../index.html#craftsmanship" class="nav-link">Craftsmanship</a></li>
+          <li><a href="../index.html#boutiques" class="nav-link">Boutiques</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1 class="page-title">Shipping Policy</h1>
+      </div>
+    </div>
+
+    <article class="policy-container">
+      <section class="policy-section">
+        <h2>Order Processing</h2>
+        <p>All Bayshore+ timepieces and fine jewelry are hand-inspected and authenticated before shipment. Orders placed
+          before 2:00 PM CET Monday through Friday are typically processed within 1-2 business days. Orders placed on
+          weekends or holidays will be processed the next business day.</p>
+        <p>Due to the bespoke nature of certain pieces and the security protocols required for high-value items, some
+          orders may require additional verification time. You will be notified via email if your order requires
+          extended processing.</p>
+
+        <div class="highlight-box">
+          <p>Each item is individually packaged in our signature presentation boxes with reinforced security seals and
+            tamper-evident packaging.</p>
+        </div>
+      </section>
+
+      <section class="policy-section">
+        <h2>Shipping Timeframes</h2>
+
+        <h3>Domestic Shipping (Switzerland)</h3>
+        <ul>
+          <li>Complimentary Express Delivery: 1-2 business days</li>
+          <li>White Glove Service (Available for purchases over CHF 50,000): Same-day delivery in select cities</li>
+          <li>All domestic shipments require signature confirmation and valid identification</li>
+        </ul>
+
+        <h3>International Shipping</h3>
+        <ul>
+          <li>European Union: 2-4 business days</li>
+          <li>United Kingdom & Norway: 3-5 business days</li>
+          <li>United States & Canada: 3-5 business days</li>
+          <li>Asia-Pacific: 4-7 business days</li>
+          <li>Middle East: 4-6 business days</li>
+        </ul>
+        <p>International deliveries are handled exclusively through insured courier services with full tracking
+          capabilities. All shipments are declared at full purchase value for insurance and customs purposes.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Tracking Your Order</h2>
+        <p>Once your order ships, you will receive a confirmation email containing your tracking number and estimated
+          delivery date. You may track your shipment through the courier's website or by contacting our concierge team
+          directly.</p>
+        <p>For security purposes, tracking information may be limited until the package reaches its destination country.
+          Our client care team is available 24/7 to provide updates on your shipment's status.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>International Customs & Duties</h2>
+        <p>All shipments are delivered duties unpaid (DDU) unless otherwise specified. Recipients are responsible for
+          all applicable customs duties, taxes, and import fees imposed by the destination country.</p>
+        <p>These charges are determined by local customs authorities and are not included in your purchase price or
+          shipping cost. We recommend contacting your local customs office for specific duty rates before placing
+          international orders.</p>
+        <p>Bayshore+ cannot declare items as gifts or reduce declared values to avoid customs duties, as this would
+          violate international shipping regulations and void our insurance coverage.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Lost or Damaged Packages</h2>
+        <p>While we take every precaution to ensure safe delivery, we understand that exceptional circumstances may
+          occur. All Bayshore+ shipments are fully insured against loss or damage during transit.</p>
+
+        <h3>Damage Upon Arrival</h3>
+        <p>If your package arrives with visible damage to the exterior packaging, please refuse delivery and immediately
+          contact our client care team. If damage is discovered after acceptance, notify us within 24 hours of delivery
+          with photographic documentation.</p>
+
+        <h3>Lost Shipments</h3>
+        <p>If your tracking information shows delivery but you have not received your package, contact us immediately.
+          We will initiate a trace investigation with the courier. If the package cannot be located within 10 business
+          days, we will file an insurance claim and arrange a replacement or refund at our discretion.</p>
+
+        <h3>Theft Prevention</h3>
+        <p>For high-value orders exceeding CHF 100,000, we require delivery to a secure location and may arrange
+          personal delivery by an Bayshore+ representative or authorized agent.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Special Circumstances</h2>
+        <p>During peak holiday seasons, adverse weather conditions, or unforeseen global events, shipping times may be
+          extended. We will communicate any delays promptly and offer alternative arrangements when possible.</p>
+        <p>For time-sensitive gifts or special occasions, we recommend placing orders at least two weeks in advance or
+          contacting our concierge to arrange expedited handling.</p>
+      </section>
+
+      <a href="../shop.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Return to Shop
+      </a>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="../shop.html" class="footer-link">Watches</a></li>
+            <li><a href="../shop.html" class="footer-link">Fine Jewelry</a></li>
+            <li><a href="../index.html#collections" class="footer-link">Collections</a></li>
+            <li><a href="../index.html#collections" class="footer-link">New Arrivals</a></li>
+            <li><a href="../index.html#boutiques" class="footer-link">Bespoke Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Client Care</h3>
+          <ul class="footer-links">
+            <li><a href="../contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="shipping.html" class="footer-link">Shipping & Returns</a></li>
+            <li><a href="../care.html" class="footer-link">Product Care</a></li>
+            <li><a href="refund.html" class="footer-link">Warranty</a></li>
+            <li><a href="../faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact">
+            <p>Bayshore+ Maison</p>
+            <p>12 Rue du Rhône</p>
+            <p>1204 Geneva, Switzerland</p>
+            <p style="margin-top: var(--space-md);">concierge@Bayshore+.com</p>
+            <p>+41 22 818 0000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2024 Bayshore+. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/main.js"></script>
+</body>
+
+</html>

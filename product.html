@@ -1,0 +1,665 @@
+<!-- product.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Oak Chronograph | Bayshore+</title>
+  <meta name="description"
+    content="Royal Oak Chronograph - Swiss-made luxury timepiece featuring 18k gold case and automatic movement.">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xl) 0;
+      font-size: var(--font-xs);
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .breadcrumb a {
+      color: var(--text-secondary);
+      transition: var(--transition-base);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent-gold);
+    }
+
+    .breadcrumb-separator {
+      color: var(--accent-gold);
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+      padding-bottom: var(--space-4xl);
+    }
+
+    @media (min-width: 1024px) {
+      .product-container {
+        grid-template-columns: 1.2fr 1fr;
+        gap: var(--space-4xl);
+      }
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .gallery-main {
+      position: relative;
+      aspect-ratio: 1;
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition-slow);
+    }
+
+    .gallery-thumbnails {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-sm);
+    }
+
+    .thumbnail {
+      aspect-ratio: 1;
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: var(--transition-base);
+    }
+
+    .thumbnail:hover,
+    .thumbnail:focus {
+      border-color: var(--accent-gold);
+      outline: none;
+    }
+
+    .thumbnail.active {
+      border-color: var(--accent-gold);
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      transition: var(--transition-base);
+    }
+
+    .thumbnail:hover img,
+    .thumbnail.active img {
+      opacity: 1;
+    }
+
+    .product-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-meta {
+      margin-bottom: var(--space-xl);
+    }
+
+    .product-category {
+      font-size: var(--font-xs);
+      color: var(--accent-gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      display: block;
+    }
+
+    .product-title {
+      font-size: var(--font-2xl);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .product-price {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      color: var(--accent-gold);
+      font-weight: 500;
+      margin-bottom: var(--space-xl);
+    }
+
+    .product-description {
+      font-size: var(--font-base);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-xl);
+    }
+
+    .features-list {
+      margin-bottom: var(--space-xl);
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-sm) 0;
+      color: var(--text-primary);
+      font-size: var(--font-sm);
+    }
+
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .assurance {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background-color: var(--bg-secondary);
+      margin-bottom: var(--space-xl);
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .assurance-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      font-size: var(--font-sm);
+      color: var(--text-secondary);
+    }
+
+    .assurance-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .btn-buy {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      width: 100%;
+      padding: var(--space-lg) var(--space-2xl);
+      background-color: var(--accent-gold);
+      border: 2px solid var(--accent-gold);
+      color: var(--bg-primary);
+      font-size: var(--font-sm);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .btn-buy:hover,
+    .btn-buy:focus {
+      background-color: var(--accent-gold-hover);
+      border-color: var(--accent-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(198, 167, 94, 0.3);
+      outline: none;
+    }
+
+    .btn-wishlist {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-sm);
+      width: 100%;
+      padding: var(--space-md);
+      background-color: transparent;
+      border: 1px solid rgba(168, 168, 168, 0.3);
+      color: var(--text-primary);
+      font-size: var(--font-xs);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .btn-wishlist:hover,
+    .btn-wishlist:focus {
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      transition: var(--transition-base);
+      margin-top: auto;
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    .details-section {
+      padding: var(--space-4xl) 0;
+      border-top: 1px solid rgba(168, 168, 168, 0.1);
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 768px) {
+      .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .detail-block h3 {
+      font-size: var(--font-sm);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: var(--space-lg);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid rgba(198, 167, 94, 0.2);
+    }
+
+    .detail-block p {
+      font-size: var(--font-sm);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .specs-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid rgba(168, 168, 168, 0.1);
+      font-size: var(--font-sm);
+    }
+
+    .spec-label {
+      color: var(--text-secondary);
+    }
+
+    .spec-value {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .shipping-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .shipping-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      font-size: var(--font-sm);
+      color: var(--text-secondary);
+    }
+
+    .shipping-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Bayshore+</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="shop.html" class="nav-link">Watches</a></li>
+          <li><a href="shop.html" class="nav-link">Jewelry</a></li>
+          <li><a href="index.html#collections" class="nav-link">Collections</a></li>
+          <li><a href="index.html#craftsmanship" class="nav-link">Craftsmanship</a></li>
+          <li><a href="index.html#boutiques" class="nav-link">Boutiques</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="shop.html">Shop</a>
+        <span class="breadcrumb-separator">/</span>
+        <span aria-current="page">Royal Oak Chronograph</span>
+      </nav>
+
+      <article class="product-container">
+        <div class="gallery">
+          <div class="gallery-main">
+           <img src="assets/royal-oak/main.jpg"
+             alt="Royal Oak Chronograph watch displayed at elegant angle showing gold case and black dial"
+              id="main-image">
+          </div>
+          <div class="gallery-thumbnails">
+            <button class="thumbnail active" aria-label="View main image">
+              <img src="assets/royal-oak/side.jpg" alt="Thumbnail view 1">
+            </button>
+            <button class="thumbnail" aria-label="View side profile">
+              <img src="assets/royal-oak/back.jpg" alt="Thumbnail side profile">
+            </button>
+            <button class="thumbnail" aria-label="View caseback">
+              <img src="assets/royal-oak/side.jpg" alt="Thumbnail caseback view">
+            </button>
+            <button class="thumbnail" aria-label="View on wrist">
+              <img src="assets/royal-oak/wrist.jpg" alt="Thumbnail wrist shot">
+            </button>
+          </div>
+        </div>
+
+        <div class="product-info">
+          <div class="product-meta">
+            <span class="product-category">Swiss Timepiece</span>
+            <h1 class="product-title">Royal Oak Chronograph</h1>
+            <p class="product-price">$28,500</p>
+            <p class="product-description">An icon of modern horology, the Royal Oak Chronograph combines bold
+              aesthetics with exceptional mechanical precision. Featuring an 18k yellow gold case and integrated
+              bracelet, this timepiece represents the pinnacle of Swiss watchmaking excellence.</p>
+
+            <ul class="features-list">
+              <li>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                18k Yellow Gold Case and Bracelet
+              </li>
+              <li>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Automatic Caliber 2385 Movement
+              </li>
+              <li>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                40-Hour Power Reserve
+              </li>
+              <li>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                Sapphire Crystal with AR Coating
+              </li>
+              <li>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                50 Meters Water Resistance
+              </li>
+            </ul>
+
+            <div class="assurance">
+              <div class="assurance-item">
+                <svg class="assurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                </svg>
+                Complimentary Express Delivery within 3-5 business days
+              </div>
+              <div class="assurance-item">
+                <svg class="assurance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                30-Day Return Policy with full refund guarantee
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn-buy" id="buy-now-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                  <path d="M3 6h18"></path>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                Buy Now
+              </button>
+              <button class="btn-wishlist">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                  </path>
+                </svg>
+                Add to Wishlist
+              </button>
+            </div>
+
+            <a href="shop.html" class="back-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+              Back to Collection
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <section class="details-section" aria-labelledby="details-heading">
+        <h2 id="details-heading" class="sr-only">Product Details</h2>
+        <div class="details-grid">
+          <div class="detail-block">
+            <h3>Description</h3>
+            <p>The Royal Oak Chronograph stands as a testament to bold design and horological mastery. First introduced
+              in 1972, this iconic timepiece revolutionized luxury sports watches with its octagonal bezel and
+              integrated bracelet.</p>
+            <p>The 41mm case houses the legendary Caliber 2385, a self-winding chronograph movement visible through the
+              sapphire exhibition caseback. Each component is hand-finished by our master watchmakers in Geneva.</p>
+            <p>The Grande Tapisserie dial features three subsidiary dials for precise time measurement, while the date
+              window at 4:30 maintains perfect symmetry.</p>
+          </div>
+
+          <div class="detail-block">
+            <h3>Specifications</h3>
+            <ul class="specs-list">
+              <li class="spec-item">
+                <span class="spec-label">Case Material</span>
+                <span class="spec-value">18k Yellow Gold</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Case Diameter</span>
+                <span class="spec-value">41 mm</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Case Thickness</span>
+                <span class="spec-value">11 mm</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Movement</span>
+                <span class="spec-value">Automatic Caliber 2385</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Power Reserve</span>
+                <span class="spec-value">40 Hours</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Water Resistance</span>
+                <span class="spec-value">50 Meters</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Crystal</span>
+                <span class="spec-value">Sapphire</span>
+              </li>
+              <li class="spec-item">
+                <span class="spec-label">Reference</span>
+                <span class="spec-value">26331BA.OO.1220BA.01</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="detail-block">
+            <h3>Shipping & Returns</h3>
+            <ul class="shipping-list">
+              <li class="shipping-item">
+                <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="1" y="3" width="15" height="13"></rect>
+                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                  <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                  <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                </svg>
+                Complimentary express shipping via insured courier
+              </li>
+              <li class="shipping-item">
+                <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Delivery within 3-5 business days worldwide
+              </li>
+              <li class="shipping-item">
+                <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                Signature required upon delivery
+              </li>
+              <li class="shipping-item">
+                <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                </svg>
+                30-day return window for full refund
+              </li>
+              <li class="shipping-item">
+                <svg class="shipping-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                5-year international warranty included
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html" class="footer-link">Watches</a></li>
+            <li><a href="shop.html" class="footer-link">Fine Jewelry</a></li>
+            <li><a href="index.html#collections" class="footer-link">Collections</a></li>
+            <li><a href="index.html#collections" class="footer-link">New Arrivals</a></li>
+            <li><a href="index.html#boutiques" class="footer-link">Bespoke Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Client Care</h3>
+          <ul class="footer-links">
+            <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="policies/shipping.html" class="footer-link">Shipping & Returns</a></li>
+            <li><a href="care.html" class="footer-link">Product Care</a></li>
+            <li><a href="policies/refund.html" class="footer-link">Warranty</a></li>
+            <li><a href="faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact">
+            <p>Baysgore+ Maison</p>
+            <p>12 Rue du Rhône</p>
+            <p>1204 Geneva, Switzerland</p>
+            <p style="margin-top: var(--space-md);">Bayshore+@gmail.com</p>
+            <p>+41 22 818 0000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2024 Bayshore+. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="js/main.js"></script>
+  <script defer src="js/stripe.js"></script>
+</body>
+
+</html>

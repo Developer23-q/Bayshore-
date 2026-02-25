@@ -1,0 +1,409 @@
+<!-- policies/refund.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Returns & Refunds | Bayshore+</title>
+  <meta name="description" content="Bayshore+ return policy and refund process for luxury timepieces and fine jewelry.">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .page-header {
+      padding: var(--space-3xl) 0 var(--space-xl);
+      text-align: center;
+      border-bottom: 1px solid rgba(198, 167, 94, 0.1);
+    }
+
+    .page-title {
+      font-size: var(--font-2xl);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+    }
+
+    .policy-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--space-3xl) var(--space-md);
+    }
+
+    .policy-section {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .policy-section h2 {
+      font-size: var(--font-xl);
+      font-weight: 400;
+      margin-bottom: var(--space-lg);
+      color: var(--accent-gold);
+      letter-spacing: 0.02em;
+    }
+
+    .policy-section p {
+      font-size: var(--font-base);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-md);
+    }
+
+    .policy-section ul {
+      margin-bottom: var(--space-lg);
+      padding-left: var(--space-lg);
+    }
+
+    .policy-section li {
+      font-size: var(--font-base);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: var(--space-sm);
+      position: relative;
+      padding-left: var(--space-md);
+    }
+
+    .policy-section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      background-color: var(--accent-gold);
+      border-radius: 50%;
+    }
+
+    .highlight-box {
+      background-color: var(--bg-secondary);
+      border-left: 3px solid var(--accent-gold);
+      padding: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .highlight-box p {
+      margin-bottom: 0;
+      color: var(--text-primary);
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin: var(--space-xl) 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: var(--space-lg);
+      align-items: flex-start;
+    }
+
+    .timeline-marker {
+      width: 12px;
+      height: 12px;
+      background-color: var(--accent-gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.5em;
+    }
+
+    .timeline-content h3 {
+      font-size: var(--font-sm);
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: var(--space-xs);
+      letter-spacing: 0.05em;
+    }
+
+    .timeline-content p {
+      margin-bottom: 0;
+      font-size: var(--font-sm);
+    }
+
+    .contact-cta {
+      background-color: var(--bg-secondary);
+      padding: var(--space-2xl);
+      text-align: center;
+      margin-top: var(--space-3xl);
+    }
+
+    .contact-cta h3 {
+      font-size: var(--font-lg);
+      font-weight: 400;
+      margin-bottom: var(--space-md);
+      color: var(--text-primary);
+    }
+
+    .contact-cta p {
+      color: var(--text-secondary);
+      margin-bottom: var(--space-lg);
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--accent-gold);
+      font-size: var(--font-sm);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: var(--transition-base);
+    }
+
+    .contact-link:hover,
+    .contact-link:focus {
+      color: var(--accent-gold-hover);
+      outline: none;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      transition: var(--transition-base);
+      margin-top: var(--space-2xl);
+    }
+
+    .back-link:hover,
+    .back-link:focus {
+      color: var(--accent-gold);
+      outline: none;
+    }
+
+    @media (min-width: 768px) {
+      .policy-container {
+        padding: var(--space-4xl) var(--space-xl);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">Bayshore+</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="../shop.html" class="nav-link">Watches</a></li>
+          <li><a href="../shop.html" class="nav-link">Jewelry</a></li>
+          <li><a href="../index.html#collections" class="nav-link">Collections</a></li>
+          <li><a href="../index.html#craftsmanship" class="nav-link">Craftsmanship</a></li>
+          <li><a href="../index.html#boutiques" class="nav-link">Boutiques</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+            <path d="M3 6h18"></path>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+        </button>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <h1 class="page-title">Returns & Refunds</h1>
+      </div>
+    </div>
+
+    <article class="policy-container">
+      <section class="policy-section">
+        <h2>Return Window</h2>
+        <p>We offer a 7-day return window from the date of delivery for all full-priced items. This period allows you to
+          carefully inspect your timepiece or jewelry piece in person and ensure it meets your expectations. The return
+          period begins at 12:00 AM local time on the delivery date confirmed by our courier tracking system.</p>
+        <p>For bespoke or customized pieces, including engraved items and made-to-order commissions, all sales are final
+          unless the item arrives damaged or defective. Pre-owned and vintage pieces are also considered final sale due
+          to their unique nature.</p>
+
+        <div class="highlight-box">
+          <p>To initiate a return, please contact our concierge team before shipping any items back to us. Unauthorized
+            returns will not be accepted.</p>
+        </div>
+      </section>
+
+      <section class="policy-section">
+        <h2>Eligibility Conditions</h2>
+        <p>To qualify for a full refund, returned items must meet the following conditions:</p>
+        <ul>
+          <li>The item must be unworn and in pristine condition, showing no signs of use, alteration, or wear</li>
+          <li>All original packaging must be intact, including the presentation box, outer shipping box, and all
+            protective materials</li>
+          <li>All accompanying documentation must be included: certificate of authenticity, warranty card, instruction
+            manual, and any additional accessories</li>
+          <li>Security seals and tags must remain unbroken and attached to the item</li>
+          <li>The original receipt or proof of purchase must be provided</li>
+        </ul>
+        <p>Items that show signs of wear, damage caused by handling, or missing components will be subject to a
+          restocking fee of up to 20% of the purchase price, or may be returned to the customer at our discretion.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Damaged Product Handling</h2>
+        <p>If your Bayshore+ piece arrives damaged or defective, we will arrange an immediate replacement or full refund
+          at no additional cost to you. Please follow these steps:</p>
+        <ul>
+          <li>Do not remove the item from its packaging if damage is visible on the exterior</li>
+          <li>Photograph the damaged packaging from multiple angles before opening</li>
+          <li>Document any damage to the item itself with detailed photographs</li>
+          <li>Contact our client care team within 24 hours of delivery with your order number and photographic evidence
+          </li>
+          <li>Retain all original packaging materials for courier inspection</li>
+        </ul>
+        <p>Our quality assurance team will review your claim within one business day. Approved damage claims will
+          receive priority handling for replacement or refund processing.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Refund Timeline</h2>
+        <p>Once your return is received and inspected, we will process your refund within 5-10 business days. The refund
+          will be issued to the original payment method used for the purchase.</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Day 1-2</h3>
+              <p>Return received and logged into our authentication system</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Day 3-5</h3>
+              <p>Quality inspection and condition verification by our horologists and gemologists</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Day 6-8</h3>
+              <p>Refund approval and processing initiation</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Day 9-10</h3>
+              <p>Funds returned to original payment method; confirmation email sent</p>
+            </div>
+          </div>
+        </div>
+
+        <p>Please note that depending on your financial institution, it may take an additional 3-5 business days for the
+          refund to appear on your statement. International refunds may experience additional delays due to currency
+          conversion and cross-border banking processes.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Exchange Policy</h2>
+        <p>We do not offer direct exchanges. If you wish to exchange an item for a different model or size, please
+          return the original item for a refund and place a new order for your preferred selection. This ensures the
+          fastest processing time and secures your desired item, as our inventory of certain pieces is extremely
+          limited.</p>
+      </section>
+
+      <section class="policy-section">
+        <h2>Return Shipping</h2>
+        <p>For standard returns within the 7-day window, the customer is responsible for return shipping costs and
+          insurance. We strongly recommend using a tracked, insured courier service with signature confirmation and full
+          value declaration.</p>
+        <p>Bayshore+ is not liable for items lost or damaged during return transit. For damaged product returns or
+          warranty claims, we will provide a prepaid shipping label at our expense.</p>
+      </section>
+
+      <div class="contact-cta">
+        <h3>Need Assistance?</h3>
+        <p>Our dedicated client care team is available to guide you through the return process and answer any questions
+          regarding your purchase.</p>
+        <a href="mailto:concierge@Bayshore+.com?subject=Return Request" class="contact-link">
+          Contact Client Care
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <a href="../shop.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        Return to Shop
+      </a>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <ul class="footer-links">
+            <li><a href="../shop.html" class="footer-link">Watches</a></li>
+            <li><a href="../shop.html" class="footer-link">Fine Jewelry</a></li>
+            <li><a href="../index.html#collections" class="footer-link">Collections</a></li>
+            <li><a href="../index.html#collections" class="footer-link">New Arrivals</a></li>
+            <li><a href="../index.html#boutiques" class="footer-link">Bespoke Services</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Client Care</h3>
+          <ul class="footer-links">
+            <li><a href="../contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="shipping.html" class="footer-link">Shipping & Returns</a></li>
+            <li><a href="../care.html" class="footer-link">Product Care</a></li>
+            <li><a href="refund.html" class="footer-link">Warranty</a></li>
+            <li><a href="../faq.html" class="footer-link">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contact</h3>
+          <div class="footer-contact">
+            <p>Bayshore+ Maison</p>
+            <p>12 Rue du Rhône</p>
+            <p>1204 Geneva, Switzerland</p>
+            <p style="margin-top: var(--space-md);">concierge@Bayshore+.com</p>
+            <p>+41 22 818 0000</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">© 2024 Bayshore+. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="../js/main.js"></script>
+</body>
+
+</html>
